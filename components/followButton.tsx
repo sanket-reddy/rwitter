@@ -26,7 +26,7 @@ export default function FollowButton(props: Ids) {
       }}
       className="bg-white hover:bg-gray-300 text-black p-2 rounded-full w-1/2"
     >
-      {following ? "follow" : "following"}
+      {following ? "following" : "follow"}
     </button>
   );
 }
