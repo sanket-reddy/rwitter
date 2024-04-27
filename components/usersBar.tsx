@@ -8,6 +8,7 @@ import ManyUsers from "./users";
 export default function UsersBar() {
   const { data: session } = useSession();
   const [users, setUsers] = useState<any[]>();
+  const currentUserEmail = session?.user?.email ?? "";
   useEffect(() => {
     const fetchUsers = async () => {
       if (session) {
@@ -20,6 +21,7 @@ export default function UsersBar() {
         }
       }
     };
+
     fetchUsers();
   }, [session]);
   if (session && users) {
@@ -27,7 +29,13 @@ export default function UsersBar() {
       <div className="w-1/3">
         {session.user?.email}
         {users.map((user) => (
-          <ManyUsers username={user.username} name={user.name}></ManyUsers>
+          <ManyUsers
+            key={user.id}
+            username={user.username}
+            name={user.name}
+            currentUserEmail={currentUserEmail}
+            displayUserId={user.id}
+          ></ManyUsers>
         ))}
       </div>
     );
