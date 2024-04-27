@@ -15,8 +15,7 @@ const Page = () => {
           if (response.data.status === 200) {
             console.log(response.data);
 
-            const reversedPosts = response.data.posts.reverse();
-            setPosts(reversedPosts);
+            setPosts(response.data.posts);
           }
         } catch (error) {
           console.error("Failed to fetch posts:", error);
