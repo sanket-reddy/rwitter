@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
   try {
     let posts = await prisma?.posts.findMany({
-      include: {
-        postedBy: true,
-      },
+      // include: {
+      // postedBy: true,
+      // },
     });
     if (posts) {
       return NextResponse.json({ status: 200, posts });
