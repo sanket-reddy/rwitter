@@ -10,7 +10,12 @@ export const GET = async () => {
     });
     const reversedPosts = posts.reverse();
     if (posts) {
-      return NextResponse.json({ status: 200, posts: reversedPosts });
+  const response = NextResponse.json({ status: 200, posts: reversedPosts });
+  response.headers.append(
+    "Cache-Control",
+    "no-cache, no-store, must-revalidate"
+  );
+  return response;
     }
   } catch (error) {
     console.log("an error has occured:  ", error);
