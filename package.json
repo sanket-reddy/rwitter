@@ -19,7 +19,6 @@
     "mongoose": "^8.3.2",
     "next": "14.2.2",
     "next-auth": "^4.24.7",
-    "node": "^22.0.0",
     "prisma": "^5.12.1",
     "react": "^18",
     "react-dom": "^18",
