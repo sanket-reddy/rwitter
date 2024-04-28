@@ -42,13 +42,7 @@ export default function Page() {
       }
     }
   };
-  if (status === "loading") {
-    return (
-      <div className="flex justify-center items-center">
-        <h1>Loading ...</h1>
-      </div>
-    );
-  }
+
   if (session) {
     router.push("/");
     return null;

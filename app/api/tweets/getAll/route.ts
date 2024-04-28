@@ -8,14 +8,14 @@ export const GET = async () => {
         postedBy: true,
       },
     });
-    const reversedPosts = posts.reverse();
+    // const reversedPosts = posts.reverse();
     if (posts) {
-  const response = NextResponse.json({ status: 200, posts: reversedPosts });
-  response.headers.append(
-    "Cache-Control",
-    "no-cache, no-store, must-revalidate"
-  );
-  return response;
+      const response = NextResponse.json({ status: 200, posts });
+      response.headers.append(
+        "Cache-Control",
+        "no-cache, no-store, must-revalidate"
+      );
+      return response;
     }
   } catch (error) {
     console.log("an error has occured:  ", error);
