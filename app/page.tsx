@@ -11,7 +11,7 @@ const Page = () => {
     const getPosts = async () => {
       if (session) {
         try {
-          const response = await axios.get("/api/tweets/getAll");
+          const response = await axios.get("/api/tweets");
           if (response.data.status === 200) {
             console.log(response.data);
 
