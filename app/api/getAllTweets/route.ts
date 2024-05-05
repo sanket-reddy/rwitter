@@ -2,9 +2,14 @@ import { NextResponse } from "next/server";
 import prisma from "@/libs/prismadb"
 export const POST = async()=>{
     try{
-        let posts = await prisma.posts.findMany({})
+        let posts = await prisma.posts.findMany({
+            include:{
+                postedBy :true
+            }
+        })
         if(posts){
-            return NextResponse.json({status : 200 , posts})
+            const reversedPosts = posts.reverse();
+            return NextResponse.json({status : 200 , posts :reversedPosts})
         }
         return NextResponse.json({status  : 200 , message : "no posts yet"})
     }catch(error){

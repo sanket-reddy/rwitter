@@ -1,5 +1,4 @@
 import prisma from "@/libs/prismadb";
-import cluster from "cluster";
 import { NextResponse } from "next/server";
 export const POST = async (request: Request) => {
   try {
@@ -7,7 +6,7 @@ export const POST = async (request: Request) => {
     await prisma.user.update({
       where: { email: clientEmail },
       data: { followingIds: { push: userId } },
-    });
+    });    
     return NextResponse.json({ status: 200, message: "sucessfully following" });
   } catch (error) {
     console.log("an error has occured : ", error);

@@ -6,6 +6,8 @@ interface tweetDetials {
   time?: Date;
   name?: string;
   username?: string;
+  postId :string;
+  clientEmail :string
 }
 
 import LikeButton from "./likeButton";
@@ -31,7 +33,7 @@ export const Tweet = (props: tweetDetials) => {
       </div>
       <div className="m-5 flex gap-5 items-center ">
         <FaComments size={24}></FaComments>
-        <LikeButton></LikeButton>
+        <LikeButton clientEmail={props.clientEmail} postId={props.postId}></LikeButton>
       </div>
     </div>
   );

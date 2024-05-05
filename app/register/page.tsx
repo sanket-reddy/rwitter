@@ -107,7 +107,7 @@ export default function Page() {
         ></Button>
         <h1>{info}</h1>
         <div className="flex items-center justify-center gap-6">
-          <Link href="/login">
+          <Link href="/sign-in">
             <p className=" hover:underline hover:text-bold">
               Already have an account ?
             </p>

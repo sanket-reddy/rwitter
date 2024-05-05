@@ -23,9 +23,9 @@ export default function ManyUsers(props: UserDetials) {
         <h1>{props.name}</h1>
         <h1 className="text-neutral-700">@{props.username}</h1>
       </div>
-      <div className="flex items-center justify-between mt-2 gap-x-4">
+      <div className=" flex items-center w-full justify-between  mt-2 gap-x-4">
         <FollowButton clientEmail={clientEmail} userId={userId}></FollowButton>
-        <button className="bg-white hover:bg-gray-300 text-black p-2 rounded-full w-1/2">
+        <button className="bg-white hover:bg-gray-300 text-black p-2 rounded-xl w-1/2">
           View Profile
         </button>
       </div>

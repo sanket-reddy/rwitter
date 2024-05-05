@@ -26,8 +26,8 @@ export default function UsersBar() {
   }, [session]);
   if (session && users) {
     return (
-      <div className="w-1/3">
-        {session.user?.email}
+      <div className="hidden sm:block w-1/4">
+        {session.user?.name}
         {users.map((user) => (
           <ManyUsers
             key={user.id}

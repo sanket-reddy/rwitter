@@ -7,14 +7,13 @@ import { Tweet } from "@/components/tweet";
 const Page = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const { data: session, status } = useSession();
+  console.log(session);
   useEffect(() => {
     const getPosts = async () => {
       if (session) {
         try {
           const response = await axios.post("/api/getAllTweets");
           if (response.data.status === 200) {
-            console.log(response.data);
-
             setPosts(response.data.posts);
           }
         } catch (error) {
@@ -46,6 +45,8 @@ const Page = () => {
             time={new Date(post.createdAt)}
             name={post.postedBy?.name}
             username={post.postedBy?.username}
+            postId = {post.id}
+            clientEmail = {session.user?.email ?? ""}
           />
         ))}
       </div>
