@@ -1,6 +1,5 @@
 import { formatDate } from "date-fns";
 import { FaComments } from "react-icons/fa";
-import { FcLikePlaceholder } from "react-icons/fc";
 interface tweetDetials {
   body?: string;
   time?: Date;
@@ -12,7 +11,9 @@ interface tweetDetials {
 
 import LikeButton from "./likeButton";
 import Image from "next/image";
+import Link from "next/link";
 export const Tweet = (props: tweetDetials) => {
+  const slug = props.postId
   const formattedDate = props.time ? formatDate(props.time, "ppp") : "";
   return (
     <div className="  h-1/5  border border-gray-800">
@@ -32,7 +33,9 @@ export const Tweet = (props: tweetDetials) => {
         <h1 className="m-5">{props.body}</h1>
       </div>
       <div className="m-5 flex gap-5 items-center ">
+      <Link href= {`/comments/${slug}`}>
         <FaComments size={24}></FaComments>
+        </Link>
         <LikeButton clientEmail={props.clientEmail} postId={props.postId}></LikeButton>
       </div>
     </div>
