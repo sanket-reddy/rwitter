@@ -7,6 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { stat } from "fs";
+import toast from "react-hot-toast";
 const SignUpSchema = z.object({
   email: z.string().min(3, { message: "minimum of 3 characters are required" }),
   password: z
@@ -27,6 +28,7 @@ export default function Page() {
       const validatedData = SignUpSchema.parse({ email, password });
       const response = await axios.post("/api/login", validatedData);
       if (response.data.status === 200) {
+        toast.success("login registration ")
         signIn("credentials", {
           email,
           password,

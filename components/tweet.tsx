@@ -16,7 +16,7 @@ export const Tweet = (props: tweetDetials) => {
   const slug = props.postId
   const formattedDate = props.time ? formatDate(props.time, "ppp") : "";
   return (
-    <div className="  h-1/5  border border-gray-800">
+    <div className="  h-1/5 pb-1  border border-gray-800">
       <div className="flex gap-x-4 items-center h-auto ml-3">
         <Image
           alt="profile pic"

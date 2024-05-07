@@ -5,9 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { SignOutButton } from "./signOutButton";
-const SideBar: React.FC = async () => {
+const SideBar = async () => {
   const items = [
-    { label: "Home", href: "/home", Icon: BsHouseFill },
+    { label: "Home", href: "/", Icon: BsHouseFill },
     { label: "Notifications", href: "/notifications", Icon: BsBellFill },
     { label: "Profile", href: "/profile", Icon: FaUser },
   ];
@@ -15,7 +15,7 @@ const SideBar: React.FC = async () => {
   console.log(session);
   return (
     <div className="border-r flex flex-col items-center min-h-screen h-full w-1/6 border-gray-900">
-      <Link href="/feed">
+      <Link href="/">
         <Image
           alt="logo"
           src="/logo01.png"
