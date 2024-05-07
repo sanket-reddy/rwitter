@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import prisma from "@/libs/prismadb";
 
 export const POST = async (request : Request)=>{
     try{
