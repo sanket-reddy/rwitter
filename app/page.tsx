@@ -29,7 +29,11 @@ const Page = () => {
   }
 
   if (!session) {
-    return <h1>Not logged in</h1>;
+    return (
+      <div className="w-full">
+        <h1>Not logged in</h1>
+      </div>
+    );
   }
 
   return (
@@ -45,8 +49,8 @@ const Page = () => {
             time={new Date(post.createdAt)}
             name={post.postedBy?.name}
             username={post.postedBy?.username}
-            postId = {post.id}
-            clientEmail = {session.user?.email ?? ""}
+            postId={post.id}
+            clientEmail={session.user?.email ?? ""}
           />
         ))}
       </div>

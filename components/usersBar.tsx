@@ -40,5 +40,5 @@ export default function UsersBar() {
       </div>
     );
   }
-  return <div className="w-1/4">usersBar</div>;
+  return <div className="w-1/4 justify-center items-center">usersBar</div>;
 }
