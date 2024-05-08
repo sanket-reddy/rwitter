@@ -32,9 +32,9 @@ const commentParse = z.object({
 export default function Page({ params }: { params: { slug: string } }) {
   const { data: session } = useSession();
   const [commentBody, setCommentBody] = useState<string>("");
-  const [allComments, setAllComments] = useState<Comment[]>([]); // Define proper type for comments
+  const [allComments, setAllComments] = useState<Comment[]>([]); 
   const postId = params.slug[0];
-  const [post, setPost] = useState<PostTypes | null>(null); // Initialize post state with null
+  const [post, setPost] = useState<PostTypes | null>(null); 
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -96,6 +96,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <div className="w-full">
         <div>
           <Tweet
+            comment = {false}
             postId={post.id}
             username={post.postedBy.username}
             name={post.postedBy.name}
@@ -119,6 +120,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <div>
           {allComments.map((comment) => (
             <Tweet
+              comment = {true}
               key={comment.id}
               body={comment.body}
               time={new Date(comment.createdAt)}

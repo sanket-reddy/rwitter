@@ -7,12 +7,13 @@ import toast from "react-hot-toast";
 interface LikeProps {
   postId: string;
   clientEmail: string;
+  comment  ?: boolean
 }
 
 interface ApiResponse {
   status?: number;
   message?: string;
-  liked?: boolean; // Adding optional liked property to ApiResponse
+  liked?: boolean; 
 }
 
 export default function LikeButton(props: LikeProps) {
@@ -28,7 +29,6 @@ export default function LikeButton(props: LikeProps) {
         setLiked(resp.data.liked);
       } catch (error) {
         console.error("Error checking like status:", error);
-        // Handle error gracefully
       }
     };
     checkLike();
@@ -70,20 +70,23 @@ export default function LikeButton(props: LikeProps) {
       toast.error("An error occurred while unliking the post");
     }
   };
+  if(props.comment){
+    return null;
+  }
 
-  if (liked === true) {
+  if (liked === true && !props.comment) {
     return (
       <button onClick={handleUnlike}>
         <FcLike size={24} />
       </button>
     );
-  } else if (liked === false) {
+  } else if (!props.comment && liked === false) {
     return (
       <button onClick={handleLike}>
         <FaRegHeart size={24} />
       </button>
     );
   } else {
-    return null; // Render nothing while the like status is being checked
+    return null; 
   }
 }

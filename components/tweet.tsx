@@ -5,15 +5,17 @@ interface tweetDetials {
   time?: Date;
   name?: string;
   username?: string;
-  postId :string;
-  clientEmail :string
+  postId: string;
+  clientEmail: string;
+  comment?: boolean;
 }
 
 import LikeButton from "./likeButton";
 import Image from "next/image";
 import Link from "next/link";
+import { prependOnceListener } from "process";
 export const Tweet = (props: tweetDetials) => {
-  const slug = props.postId
+  const slug = props.postId;
   const formattedDate = props.time ? formatDate(props.time, "ppp") : "";
   return (
     <div className="  h-1/5 pb-1  border border-gray-800">
@@ -32,12 +34,20 @@ export const Tweet = (props: tweetDetials) => {
       <div>
         <h1 className="m-5">{props.body}</h1>
       </div>
-      <div className="m-5 flex gap-5 items-center ">
-      <Link href= {`/comments/${slug}`}>
-        <FaComments size={24}></FaComments>
-        </Link>
-        <LikeButton clientEmail={props.clientEmail} postId={props.postId}></LikeButton>
-      </div>
+ 
+
+        {props.comment ? null : (
+               <div className="m-5 flex gap-5 items-center ">
+               <Link href={`/comments/${slug}`}>
+                 <FaComments size={24}></FaComments>
+               </Link>
+          <LikeButton
+            clientEmail={props.clientEmail}
+            postId={props.postId}
+          ></LikeButton>
     </div>
+
+        )}
+      </div>
   );
 };
