@@ -9,7 +9,7 @@ import { signIn, useSession } from "next-auth/react";
 import { stat } from "fs";
 import toast from "react-hot-toast";
 const SignUpSchema = z.object({
-  email: z.string().min(3, { message: "minimum of 3 characters are required" }),
+  email: z.string().min(3, { message: "minimum of 3 characters are required" }).email({message : "this is not valid email"}),
   password: z
     .string()
     .min(3, { message: "minimum of 3 characters are required" }),

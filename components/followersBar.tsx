@@ -13,7 +13,7 @@ export default function FollowersBar() {
   const { data: session } = useSession();
   const [NewAccounts,setNewAccounts] = useState<User[]>();
   const [Followers,setFollowers] = useState<User[]>();
-  const [following, setFollwing] = useState<boolean>(true);
+  const [following, setFollwing] = useState<boolean>(false);
   useEffect(() => {
     const fetchFollowing = async () => {
       const resp = await axios.post("/api/user/getUsersBar", {

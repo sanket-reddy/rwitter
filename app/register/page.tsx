@@ -15,7 +15,7 @@ const SignInSchema = z.object({
     .string()
     .min(3, { message: "minimum of 3 characters are required" }),
   name: z.string().min(3, { message: "minimum of 3 characters are required" }),
-  email: z.string().min(3, { message: "minimum of 3 characters are required" }),
+  email: z.string().min(3, { message: "minimum of 3 characters are required" }).email({message : "this is not valid email"}),
 });
 
 export default function Page() {
