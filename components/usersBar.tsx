@@ -12,7 +12,7 @@ export default function UsersBar() {
   useEffect(() => {
     const fetchUsers = async () => {
       if (session) {
-        let response = await axios.post("/api/getusers", {
+        let response = await axios.post("/api/user/getNewFollowers", {
           email: session?.user?.email,
         });
         console.log(response.data);

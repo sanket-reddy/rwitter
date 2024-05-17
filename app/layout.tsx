@@ -7,6 +7,7 @@ import { getServerSession } from "next-auth";
 import SideBar from "@/components/sidebar";
 import UsersBar from "@/components/usersBar";
 import { User } from "@/db/models";
+import FollowersBar  from "@/components/followersBar";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["500"] });
 
@@ -29,7 +30,8 @@ export default async function RootLayout({
           <div className="flex">
             <SideBar></SideBar>
             {children}
-            <UsersBar></UsersBar>
+            {/* <UsersBar></UsersBar> */}
+            <FollowersBar></FollowersBar>
           </div>
         </SessionProvider>
       </body>
