@@ -49,7 +49,7 @@ export default function FollowersBar() {
           key={user.id}  
           username={user.username ?? ""}
           name={user.name ?? ""}
-          clientEmail={user.email ?? ""}
+          email={session?.user?.email ?? ""}
           userId={user.id}
           ></DisplayFollower>
         ))}
