@@ -5,8 +5,7 @@ import SessionProvider from "@/components/SessionProvider";
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import SideBar from "@/components/sidebar";
-import UsersBar from "@/components/usersBar";
-import { User } from "@/db/models";
+
 import FollowersBar  from "@/components/followersBar";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["500"] });
